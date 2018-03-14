@@ -1,0 +1,28 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/zealium_bg.qm</file>
+        <file alias="ca">locale/zealium_ca.qm</file>
+        <file alias="cs">locale/zealium_cs.qm</file>
+        <file alias="da">locale/zealium_da.qm</file>
+        <file alias="de">locale/zealium_de.qm</file>
+        <file alias="en">locale/zealium_en.qm</file>
+        <file alias="en_US">locale/zealium_en_US.qm</file>
+        <file alias="es">locale/zealium_es.qm</file>
+        <file alias="fi">locale/zealium_fi.qm</file>
+        <file alias="fr_FR">locale/zealium_fr_FR.qm</file>
+        <file alias="it">locale/zealium_it.qm</file>
+        <file alias="ja">locale/zealium_ja.qm</file>
+        <file alias="ko_KR">locale/zealium_ko_KR.qm</file>
+        <file alias="nl">locale/zealium_nl.qm</file>
+        <file alias="pl">locale/zealium_pl.qm</file>
+        <file alias="pt">locale/zealium_pt.qm</file>
+        <file alias="pt_BR">locale/zealium_pt_BR.qm</file>
+        <file alias="ro_RO">locale/zealium_ro_RO.qm</file>
+        <file alias="ru">locale/zealium_ru.qm</file>
+        <file alias="sk">locale/zealium_sk.qm</file>
+        <file alias="sv">locale/zealium_sv.qm</file>
+        <file alias="uk">locale/zealium_uk.qm</file>
+        <file alias="zh_CN">locale/zealium_zh_CN.qm</file>
+        <file alias="zh_TW">locale/zealium_zh_TW.qm</file>
+    </qresource>
+</RCC>

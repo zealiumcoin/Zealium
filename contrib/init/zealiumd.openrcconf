@@ -1,0 +1,26 @@
+# /etc/conf.d/zealiumd: config file for /etc/init.d/zealiumd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/zealium/zealium.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/zealiumd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/zealiumd.pid"
+
+# Where to write zealiumd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/zealiumd"
+
+# User and group to own zealiumd process
+#BITCOIND_USER="zealium"
+#BITCOIND_GROUP="zealium"
+
+# Path to zealiumd executable
+#BITCOIND_BIN="/usr/bin/zealiumd"
+
+# Nice value to run zealiumd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

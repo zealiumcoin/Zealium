@@ -1,0 +1,26 @@
+[Unit]
+Description=Zealium's distributed currency daemon
+After=network.target
+
+[Service]
+User=zealium
+Group=zealium
+
+Type=forking
+PIDFile=/var/lib/zealiumd/zealiumd.pid
+
+ExecStart=/usr/bin/zealiumd -daemon -pid=/var/lib/zealiumd/zealiumd.pid \
+          -conf=/etc/zealium/zealium.conf -datadir=/var/lib/zealiumd
+
+ExecStop=-/usr/bin/zealium-cli -conf=/etc/zealium/zealium.conf \
+         -datadir=/var/lib/zealiumd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

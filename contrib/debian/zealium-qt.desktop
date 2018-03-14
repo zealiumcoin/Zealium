@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Zealium
+Comment=Zealium P2P Cryptocurrency
+Comment[fr]=Zealium, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Zealium, eşten eşe kriptografik sanal para birimi
+Exec=zealium-qt %u
+Terminal=false
+Type=Application
+Icon=zealium128
+MimeType=x-scheme-handler/zealium;
+Categories=Office;Finance;

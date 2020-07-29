@@ -3610,7 +3610,16 @@ CBlockIndex* InsertBlockIndex(uint256 hash)
 
 bool static LoadBlockIndexDB()
 {
-    if (!pblocktree->LoadBlockIndexGuts())
+	// last available block height for progress
+	int64_t nLastBlockHeight = 0;
+	CBlockFileInfo info;
+	int LastBlock;
+	pblocktree->ReadLastBlockFile( LastBlock );
+	if( pblocktree->ReadBlockFileInfo( LastBlock, info ) ){
+		nLastBlockHeight = info.nHeightLast;
+	}
+				
+    if ( !pblocktree->LoadBlockIndexGuts( nLastBlockHeight ) )
         return false;
 
     boost::this_thread::interruption_point();

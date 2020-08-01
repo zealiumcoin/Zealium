@@ -8,6 +8,7 @@
 #include "main.h"
 #include "pow.h"
 #include "uint256.h"
+#include "ui_interface.h"
 
 #include <stdint.h>
 
@@ -195,14 +196,14 @@ bool CBlockTreeDB::ReadFlag(const std::string& name, bool& fValue)
     return true;
 }
 
-bool CBlockTreeDB::LoadBlockIndexGuts()
+bool CBlockTreeDB::LoadBlockIndexGuts( int64_t nLastBlockHeight  )
 {
     boost::scoped_ptr<leveldb::Iterator> pcursor(NewIterator());
 
     CDataStream ssKeySet(SER_DISK, CLIENT_VERSION);
     ssKeySet << make_pair('b', uint256(0));
     pcursor->Seek(ssKeySet.str());
-
+    int64_t ct = 0;
     // Load mapBlockIndex
     while (pcursor->Valid()) {
         boost::this_thread::interruption_point();
@@ -217,6 +218,11 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                 CDiskBlockIndex diskindex;
                 ssValue >> diskindex;
 
+                if ( nLastBlockHeight > 0 ){
+					ct++;
+					double dPercent = ct / (double)nLastBlockHeight;
+					uiInterface.ShowProgress( _("Loading blocks... "), min( (int)(dPercent * 100), 100 ) );
+                }
                 // Construct block index object
                 CBlockIndex* pindexNew = InsertBlockIndex(diskindex.GetBlockHash());
                 pindexNew->pprev = InsertBlockIndex(diskindex.hashPrev);
